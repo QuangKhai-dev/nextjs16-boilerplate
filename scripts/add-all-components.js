@@ -181,8 +181,14 @@ async function addAllComponents() {
   log("=".repeat(50) + "\n", "bright");
 
   if (failCount > 0) {
-    log("💡 Note: Some components might have failed due to dependencies or naming.", "yellow");
-    log("   You can add them individually using: npm run add:component <name>\n", "yellow");
+    log(
+      "💡 Note: Some components might have failed due to dependencies or naming.",
+      "yellow"
+    );
+    log(
+      "   You can add them individually using: npm run add:component <name>\n",
+      "yellow"
+    );
   }
 
   log("✨ Done! All components have been added and organized.\n", "green");

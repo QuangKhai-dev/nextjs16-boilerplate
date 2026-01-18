@@ -25,7 +25,7 @@ const indexFile = path.join(componentDir, "index.tsx");
 
 try {
   console.log(`📦 Adding shadcn component: ${componentName}...`);
-  
+
   // Run shadcn add command
   execSync(`npx shadcn@latest add ${componentName} --yes`, {
     stdio: "inherit",
@@ -35,7 +35,9 @@ try {
   // Check if component file was created
   if (!fs.existsSync(componentFile)) {
     console.error(`❌ Component file not found: ${componentFile}`);
-    console.log("💡 The component might have been created with a different name or location.");
+    console.log(
+      "💡 The component might have been created with a different name or location."
+    );
     process.exit(1);
   }
 
@@ -56,8 +58,12 @@ try {
   fs.unlinkSync(componentFile);
   console.log(`🗑️  Removed: ${componentFile}`);
 
-  console.log(`\n✨ Component ${componentName} has been organized into: components/atoms/${componentName}/`);
-  console.log(`📝 Import it like: import { ${componentName.charAt(0).toUpperCase() + componentName.slice(1)} } from "@/components/atoms/${componentName}"`);
+  console.log(
+    `\n✨ Component ${componentName} has been organized into: components/atoms/${componentName}/`
+  );
+  console.log(
+    `📝 Import it like: import { ${componentName.charAt(0).toUpperCase() + componentName.slice(1)} } from "@/components/atoms/${componentName}"`
+  );
 } catch (error) {
   console.error("❌ Error:", error.message);
   process.exit(1);
